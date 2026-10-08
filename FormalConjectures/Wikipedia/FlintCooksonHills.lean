@@ -24,6 +24,7 @@ public import FormalConjecturesUtil
 - [Wikipedia: Examples of numerical series](https://en.wikipedia.org/wiki/Series_(mathematics)#Examples_of_numerical_series)
 - [MathWorld: Flint Hills Series](https://mathworld.wolfram.com/FlintHillsSeries.html)
 - [Alekseyev, On the Flint Hills series](https://doi.org/10.48550/arXiv.1104.5100)
+- [OpenAI, The irrationality exponent of π is 2](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026/paper.pdf)
 - [MathWorld: Cookson Hills Series](https://mathworld.wolfram.com/CooksonHillsSeries.html)
 -/
 
@@ -35,9 +36,10 @@ namespace FlintCooksonHills
 The Flint Hills series summing $csc(n)^2 / n^3$ from $n=1$ to $\infty$ converges.
 (Note that we 0-index the series below.)
 -/
-@[category research open, AMS 40]
+@[category research solved, AMS 40,
+  formal_proof using lean4 at "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/NumberTheory/PiExponent/Main.lean#L29-L32"]
 theorem flint_hills_series_converges :
-    answer(sorry) ↔
+    answer(True) ↔
       Summable (fun n : ℕ =>
         1 / ((((n + 1) : ℝ)^3) * (Real.sin (n + 1)^2))) := by
   sorry
@@ -45,9 +47,10 @@ theorem flint_hills_series_converges :
 /--
 The Cookson Hills series summing $sec(n)^2 / n^3$ from $n=1$ to $\infty$ converges.
 -/
-@[category research open, AMS 40]
+@[category research solved, AMS 40,
+  formal_proof using lean4 at "https://github.com/Mattie/math/blob/7ea88b56ddf59e9d3213e2029071c63d09be7dd4/formalizations/FlintCooksonHills/SmallDivisors/Main.lean#L42-L55"]
 theorem cookson_hills_series_converges :
-    answer(sorry) ↔
+    answer(True) ↔
       Summable (fun n : ℕ =>
         1 / ((((n + 1) : ℝ)^3) * (Real.cos (n + 1)^2))) := by
   sorry
